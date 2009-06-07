@@ -1,8 +1,9 @@
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.threelevers.css</groupId>
-  <artifactId>3levers-css</artifactId>
-  <version>1-SNAPSHOT</version>
+  <groupId>com.3levers.cssselectors</groupId>
+  <artifactId>cssselectors</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <name>CSS Selectors</name>
   <build>
     <plugins>
@@ -28,6 +29,13 @@
         </executions>
       </plugin>
     </plugins>
+    <extensions>
+      <extension>
+        <groupId>org.jvnet.wagon-svn</groupId>
+        <artifactId>wagon-svn</artifactId>
+        <version>1.8</version>
+      </extension>
+    </extensions>
   </build>
   <dependencies>
    <dependency>
@@ -36,32 +44,26 @@
       <version>3.0.1</version>
     </dependency>
     <dependency>
-      <groupId>com.google.code.google-collections</groupId>
-      <artifactId>google-collect</artifactId>
-      <version>snapshot-20080530</version>
+      <groupId>com.google.collections</groupId>
+      <artifactId>google-collections</artifactId>
+      <version>1.0-rc2</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit-dep</artifactId>
       <version>4.5</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hamcrest</groupId>
+          <artifactId>hamcrest-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.hamcrest</groupId>
-      <artifactId>hamcrest-core</artifactId>
-      <version>1.2RC3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hamcrest</groupId>
-      <artifactId>hamcrest-library</artifactId>
-      <version>1.2RC3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hamcrest</groupId>
-      <artifactId>hamcrest-integration</artifactId>
-      <version>1.2RC3</version>
+      <artifactId>hamcrest-all</artifactId>
+      <version>1.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -71,4 +73,20 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+    <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>3levers-googlecode-releases</id>
+      <url>svn:https://3levers.googlecode.com/svn/maven2/releases</url>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>true</uniqueVersion>
+      <id>3levers-googlecode-snapshots</id>
+      <url>svn:https://3levers.googlecode.com/svn/maven2/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <scm>
+    <connection>scm:git:git://github.com/rwallace/cssselectors.git</connection>
+    <url>scm:git:git://github.com/rwallace/cssselectors.git</url>
+  </scm>
 </project>

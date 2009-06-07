@@ -6,7 +6,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.google.common.base.Predicate;
-import com.google.common.collect.AbstractIterable;
 import com.google.common.collect.AbstractIterator;
 
 public final class Nodes {
@@ -17,7 +16,7 @@ public final class Nodes {
     }
     
     static Iterable<Node> asIterable(final NodeList nodes) {
-        return new AbstractIterable<Node>() {
+        return new Iterable<Node>() {
             public Iterator<Node> iterator() {
                 return new AbstractIterator<Node>() {
                     int index = -1;

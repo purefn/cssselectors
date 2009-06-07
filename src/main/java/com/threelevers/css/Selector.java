@@ -1,7 +1,6 @@
 package com.threelevers.css;
 
 import static com.google.common.collect.Iterables.concat;
-import static com.google.common.collect.Iterables.emptyIterable;
 import static com.threelevers.css.CssSelectors.selectors;
 import static com.threelevers.css.Nodes.isElement;
 
@@ -10,6 +9,8 @@ import java.util.Collections;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
+import com.google.common.collect.ImmutableSet;
 
 public final class Selector {
     private final Element element;
@@ -31,7 +32,7 @@ public final class Selector {
     }
     
     static Iterable<Element> select(Element element, CssSelector matcher) {
-        Iterable<Element> matches = emptyIterable();
+        Iterable<Element> matches = ImmutableSet.of();
         if (matcher.matches(element)) {
             matches = concat(matches, Collections.singletonList(element));
         }

@@ -1,6 +1,6 @@
 package com.threelevers.css;
 
-import static com.google.common.collect.Iterables.newArray;
+import static com.google.common.collect.Iterables.toArray;
 import static com.threelevers.css.DocumentBuilder.doc;
 import static com.threelevers.css.Matchers.elements;
 import static com.threelevers.css.Selector.from;
@@ -338,6 +338,6 @@ public class SelectorTest {
     }
 
     static Element[] elementsSelectedWith(String selector) {
-        return newArray(from(doc).select(selector), Element.class);
+        return toArray(from(doc).select(selector), Element.class);
     }
 }
